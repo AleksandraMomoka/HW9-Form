@@ -4,7 +4,7 @@ let btn = document.getElementById('btn-add-tasks');
 let form = document.getElementById('form');
 let task;
 let deletBtn;
-let regExp = /^[\s\w\-!$%^&*()_+|~=`{}\[\]:";'<>?,.\/]{2,15}$/i;
+let regExp = /^[\s\w]{2,15}$/i;
 
 input.addEventListener('blur', (e) => {
     e.preventDefault();
@@ -21,24 +21,19 @@ function validate(regExp, input) {
 
 function valid(input) {
     input.classList.remove('input-pole-task-invalid');
-    input.classList.add('input-pole-tasks-valid');
 }
 
 function notvalid(input) {
     input.classList.add('input-pole-task-invalid');
-    input.classList.remove('input-pole-task-valid');
 }
 
 form.addEventListener('submit', (e) => {
     e.preventDefault();
     if (!validate(regExp, input.value))  {
         alert('notvalid');
-    }
-    else {
-        
+    } else {
         createElement(input.value);
     }
-    
 });
 
 function createElement(value) {
