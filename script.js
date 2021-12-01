@@ -9,22 +9,14 @@ let regExp = /^[\s\w]{2,15}$/i;
 input.addEventListener('blur', (e) => {
     e.preventDefault();
     if (!validate(regExp, input.value)) {
-        notvalid(input);
+        input.classList.add('input-pole-task-invalid');
     } else if (validate(regExp, input.value)) {
-        valid(input);
+        input.classList.remove('input-pole-task-invalid');
     }
 });
 
 function validate(regExp, input) {
     return regExp.test(input);
-}
-
-function valid(input) {
-    input.classList.remove('input-pole-task-invalid');
-}
-
-function notvalid(input) {
-    input.classList.add('input-pole-task-invalid');
 }
 
 form.addEventListener('submit', (e) => {
