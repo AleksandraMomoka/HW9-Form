@@ -9,10 +9,8 @@ let regExp = /^[\s\w\-!$%^&*()_+|~=`{}\[\]:";'<>?,.\/]{2,15}$/i;
 input.addEventListener('blur', (e) => {
     e.preventDefault();
     if (!validate(regExp, input.value)) {
-        console.log('no');
         notvalid(input);
     } else if (validate(regExp, input.value)) {
-        console.log('yes');
         valid(input);
     }
 });
